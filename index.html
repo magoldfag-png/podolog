@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Кабинет практической подологии Натальи Чигиревой — Новосибирск</title>
+<meta name="description" content="Кабинет практической подологии Натальи Чигиревой. Лечение вросших и деформированных ногтей, аппаратный педикюр, обработка мозолей и натоптышей, установка титановой нити. Центр города, м. Красный проспект.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Manrope',sans-serif;background:#faf8f5;color:#1a1a1a;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+:root{
+--gold:#b8935f;
+--gold-light:#d4b88a;
+--dark:#1a1a1a;
+--light:#faf8f5;
+--card-shadow:0 4px 24px rgba(26,26,26,.08);
+--card-shadow-hover:0 12px 40px rgba(184,147,95,.18);
+--radius:18px;
+--tap:44px
+}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(184,147,95,.15)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.header__logo-block{min-width:0;flex-shrink:1}
+.header__logo{font-size:18px;font-weight:800;color:var(--dark);letter-spacing:-.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header__logo span{color:var(--gold)}
+.header__logo-sub{font-size:12px;font-weight:500;color:#999;display:block;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header__badge{display:inline-block;font-size:11px;font-weight:600;color:var(--gold);background:rgba(184,147,95,.1);padding:5px 12px;border-radius:20px;margin-top:4px;max-width:260px;line-height:1.3}
+.header__nav{display:flex;align-items:center;gap:28px;flex-shrink:0}
+.header__nav a{font-size:14px;font-weight:500;color:var(--dark);transition:color .2s}
+.header__nav a:hover{color:var(--gold)}
+.header__dropdown{position:relative}
+.header__dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border-radius:12px;box-shadow:var(--card-shadow);min-width:240px;padding:8px 0;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s;z-index:10}
+.header__dropdown:hover .header__dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.header__dropdown-menu a{display:block;padding:10px 16px;font-size:13px;min-height:var(--tap);display:flex;align-items:center}
+.header__dropdown-menu a:hover{background:rgba(184,147,95,.08);color:var(--gold)}
+.header__right{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.header__phone{font-size:15px;font-weight:700;color:var(--dark);white-space:nowrap}
+.header__cta{background:var(--gold);color:#fff!important;padding:10px 22px;border-radius:10px;font-size:14px;font-weight:600;transition:all .2s;white-space:nowrap;min-height:var(--tap);display:inline-flex;align-items:center}
+.header__cta:hover{background:#a07e4f;transform:translateY(-1px)}
+.header__burger{display:none;flex-direction:column;gap:5px;padding:8px;min-width:var(--tap);min-height:var(--tap);justify-content:center;align-items:center}
+.header__burger span{width:24px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s}
+.header__burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.header__burger.active span:nth-child(2){opacity:0}
+.header__burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{padding:120px 0 60px}
+.hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero__content{max-width:560px}
+.hero__title{font-size:42px;font-weight:800;line-height:1.15;letter-spacing:-1px;margin-bottom:18px}
+.hero__title em{color:var(--gold);font-style:normal}
+.hero__subtitle{font-size:16px;color:#555;margin-bottom:14px;max-width:480px}
+.hero__address{font-size:14px;color:var(--gold);font-weight:600;margin-bottom:26px;display:flex;align-items:center;gap:8px}
+.hero__address::before{content:'';width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.hero__buttons{display:flex;gap:14px;margin-bottom:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:600;transition:all .25s;min-height:var(--tap)}
+.btn--primary{background:var(--gold);color:#fff}
+.btn--primary:hover{background:#a07e4f;transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,147,95,.3)}
+.btn--outline{border:2px solid var(--gold);color:var(--gold)}
+.btn--outline:hover{background:var(--gold);color:#fff;transform:translateY(-2px)}
+.hero__stats{display:flex;gap:28px;flex-wrap:wrap}
+.hero__stat{display:flex;flex-direction:column;gap:2px}
+.hero__stat-value{font-size:22px;font-weight:800;color:var(--dark)}
+.hero__stat-label{font-size:12px;color:#888;max-width:140px}
+.hero__image-wrap{position:relative}
+.hero__image{width:100%;border-radius:var(--radius);box-shadow:var(--card-shadow);aspect-ratio:6/5;object-fit:cover}
+.hero__image--placeholder{width:100%;aspect-ratio:6/5;border-radius:var(--radius);box-shadow:var(--card-shadow);background:linear-gradient(135deg,#f5ede0 0%,#e0d3be 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero__rating-badge{position:absolute;bottom:-16px;left:-16px;background:#fff;border-radius:14px;padding:14px 20px;box-shadow:var(--card-shadow);display:flex;align-items:center;gap:10px}
+.hero__rating-stars{color:var(--gold);font-size:16px}
+.hero__rating-value{font-size:20px;font-weight:800}
+.hero__rating-text{font-size:11px;color:#888;line-height:1.3}
+
+/* SECTION */
+.section{padding:60px 0}
+.section__header{text-align:center;margin-bottom:40px}
+.section__title{font-size:32px;font-weight:800;letter-spacing:-.5px;margin-bottom:10px}
+.section__subtitle{font-size:15px;color:#888}
+.section__promo{display:inline-block;font-size:14px;font-weight:600;color:var(--gold);background:rgba(184,147,95,.1);padding:10px 24px;border-radius:30px;margin-bottom:30px}
+
+/* SERVICES */
+.services__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.service-card{background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.service-card:hover{box-shadow:var(--card-shadow-hover);transform:translateY(-4px)}
+.service-card__photo{aspect-ratio:2/1;background:linear-gradient(135deg,#f0e6d5,#e8dcc8);display:flex;align-items:center;justify-content:center;font-size:13px;color:#b0a48f;font-weight:500;text-align:center;padding:20px}
+.service-card__body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
+.service-card__title{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.3}
+.service-card__desc{font-size:13px;color:#888;margin-bottom:12px;flex:1}
+.service-card__price{font-size:18px;font-weight:800;color:var(--gold);margin-bottom:12px}
+.service-card__price-included{color:#2a9d4e;font-size:14px;font-weight:600}
+.service-card__btn{background:rgba(184,147,95,.1);color:var(--gold);padding:12px;border-radius:10px;font-size:13px;font-weight:600;transition:all .2s;text-align:center;min-height:var(--tap);display:flex;align-items:center;justify-content:center}
+.service-card__btn:hover{background:var(--gold);color:#fff}
+
+/* WHY */
+.why__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why-card{text-align:center;padding:28px 20px;background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);transition:all .3s}
+.why-card:hover{box-shadow:var(--card-shadow-hover);transform:translateY(-4px)}
+.why-card__icon{font-size:36px;margin-bottom:14px}
+.why-card__title{font-size:15px;font-weight:700;margin-bottom:8px}
+.why-card__desc{font-size:13px;color:#888;line-height:1.5}
+
+/* EDUCATION */
+.education{display:flex;align-items:center;gap:32px;max-width:780px;margin:0 auto;background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:32px 36px}
+.education__icon{flex-shrink:0;width:64px;height:64px;border-radius:16px;background:rgba(184,147,95,.12);display:flex;align-items:center;justify-content:center;font-size:30px}
+.education__title{font-size:18px;font-weight:700;margin-bottom:6px}
+.education__text{font-size:14px;color:#777;line-height:1.6}
+.education__highlight{font-weight:600;color:var(--gold)}
+
+/* REVIEWS */
+.reviews__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review-card{background:#fff;border-radius:var(--radius);box-shadow:var(--card-shadow);padding:24px;transition:all .3s}
+.review-card:hover{box-shadow:var(--card-shadow-hover);transform:translateY(-3px)}
+.review-card__stars{color:var(--gold);font-size:16px;margin-bottom:12px;letter-spacing:2px}
+.review-card__text{font-size:14px;color:#555;line-height:1.6;margin-bottom:16px}
+.review-card__author{display:flex;align-items:center;gap:12px}
+.review-card__avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;flex-shrink:0}
+.review-card__name{font-size:14px;font-weight:600}
+.review-card__source{font-size:12px;color:#aaa}
+
+/* PORTFOLIO */
+.portfolio__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.portfolio-item{aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,#f0e6d5,#e8dcc8);display:flex;align-items:center;justify-content:center;font-size:13px;color:#b0a48f;font-weight:500;text-align:center;padding:14px;box-shadow:var(--card-shadow);transition:all .3s}
+.portfolio-item:hover{box-shadow:var(--card-shadow-hover);transform:scale(1.02)}
+.portfolio__caption{text-align:center;font-size:13px;color:#999;margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto}
+.portfolio__link{display:inline-block;margin-top:16px;font-size:15px;font-weight:600;color:var(--gold);transition:color .2s;min-height:var(--tap);display:inline-flex;align-items:center}
+.portfolio__link:hover{color:#a07e4f}
+
+/* CTA */
+.cta{background:var(--dark);border-radius:24px;padding:48px;margin:0 auto}
+.cta__inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cta__title{font-size:28px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-.5px}
+.cta__subtitle{font-size:15px;color:#aaa;margin-bottom:24px}
+.cta__buttons{display:flex;flex-direction:column;gap:12px}
+.cta__btn{display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:600;transition:all .25s;min-height:var(--tap)}
+.cta__btn--wa{background:#25D366;color:#fff}
+.cta__btn--wa:hover{background:#1da851;transform:translateY(-2px)}
+.cta__btn--vk{background:#0077FF;color:#fff}
+.cta__btn--vk:hover{background:#005ccc;transform:translateY(-2px)}
+.cta__form{background:#fff;border-radius:var(--radius);padding:28px}
+.cta__form select,.cta__form input{width:100%;padding:14px 16px;border:2px solid #eee;border-radius:12px;font-size:16px;font-family:inherit;margin-bottom:14px;transition:border-color .2s;outline:none;-webkit-appearance:none;appearance:none}
+.cta__form select:focus,.cta__form input:focus{border-color:var(--gold)}
+.cta__form button{width:100%;padding:14px;background:var(--gold);color:#fff;border-radius:12px;font-size:16px;font-weight:600;transition:all .2s;min-height:var(--tap)}
+.cta__form button:hover{background:#a07e4f;transform:translateY(-1px)}
+
+/* FOOTER */
+.footer{background:var(--dark);color:#ccc;padding:48px 0 24px;margin-top:60px}
+.footer__inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer__brand{font-size:18px;font-weight:800;color:#fff;margin-bottom:10px}
+.footer__brand span{color:var(--gold)}
+.footer__desc{font-size:13px;color:#999;line-height:1.6;max-width:280px}
+.footer__social{display:flex;gap:10px;margin-top:16px}
+.footer__social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;transition:all .2s}
+.footer__social a:hover{background:var(--gold);color:#fff}
+.footer__title{font-size:14px;font-weight:700;color:#fff;margin-bottom:14px}
+.footer__links a,.footer__contacts p{display:block;font-size:13px;color:#999;margin-bottom:8px;transition:color .2s}
+.footer__links a:hover{color:var(--gold)}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;text-align:center;font-size:12px;color:#777}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE NAV */
+.header__nav--mobile{position:fixed;top:72px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;align-items:flex-start;padding:20px 24px;gap:0;box-shadow:var(--card-shadow);transform:translateX(-100%);opacity:0;visibility:hidden;transition:all .3s;z-index:99;overflow-y:auto}
+.header__nav--mobile.active{transform:translateX(0);opacity:1;visibility:visible}
+.header__nav--mobile>a{font-size:16px;padding:14px 0;min-height:var(--tap);display:flex;align-items:center;width:100%;border-bottom:1px solid #f0f0f0}
+.header__dropdown--mobile{width:100%}
+.header__dropdown--mobile>a{font-size:16px;padding:14px 0;min-height:var(--tap);display:flex;align-items:center;width:100%;border-bottom:1px solid #f0f0f0}
+.header__dropdown-menu--mobile{display:none;padding:0 0 8px 16px}
+.header__dropdown-menu--mobile.open{display:block}
+.header__dropdown-menu--mobile a{display:block;padding:10px 0;font-size:14px;color:#777;min-height:var(--tap);display:flex;align-items:center}
+
+/* RESPONSIVE: TABLET */
+@media(max-width:1024px){
+.services__grid{grid-template-columns:repeat(2,1fr)}
+.why__grid{grid-template-columns:repeat(2,1fr)}
+.reviews__grid{grid-template-columns:repeat(2,1fr)}
+.portfolio__grid{grid-template-columns:repeat(3,1fr)}
+.footer__inner{grid-template-columns:1fr 1fr}
+.education{flex-direction:column;text-align:center;gap:20px}
+.header__badge{display:none}
+.hero__title{font-size:36px}
+}
+
+/* RESPONSIVE: MOBILE */
+@media(max-width:768px){
+.hero{padding:96px 0 40px}
+.hero__inner{grid-template-columns:1fr;gap:32px}
+.hero__title{font-size:28px;letter-spacing:-.5px}
+.hero__subtitle{font-size:15px}
+.hero__address{font-size:13px}
+.hero__stats{gap:16px}
+.hero__stat-value{font-size:20px}
+.hero__stat-label{font-size:11px;max-width:110px}
+.hero__rating-badge{bottom:-12px;left:-8px;padding:12px 16px}
+.hero__rating-value{font-size:18px}
+.cta{padding:28px 20px;border-radius:var(--radius)}
+.cta__inner{grid-template-columns:1fr;gap:24px}
+.cta__title{font-size:22px}
+.cta__subtitle{font-size:14px}
+.cta__form{padding:20px}
+.section{padding:48px 0}
+.section__title{font-size:24px}
+.section__subtitle{font-size:14px}
+.section__promo{font-size:13px;padding:8px 20px}
+.header__nav,.header__cta{display:none}
+.header__burger{display:flex}
+.header__phone{font-size:14px}
+.header__logo{font-size:16px}
+.header__logo-sub{font-size:11px}
+.service-card__title{font-size:16px}
+.service-card__desc{font-size:14px}
+.service-card__price{font-size:20px}
+.why-card__title{font-size:16px}
+.why-card__desc{font-size:14px}
+.review-card__text{font-size:14px}
+.education__title{font-size:16px}
+.education__text{font-size:14px}
+.footer__brand{font-size:16px}
+.footer__desc{font-size:13px}
+.footer__title{font-size:15px}
+.footer__links a,.footer__contacts p{font-size:14px}
+}
+
+/* RESPONSIVE: SMALL MOBILE */
+@media(max-width:480px){
+.container{padding:0 16px}
+.hero{padding:88px 0 32px}
+.hero__title{font-size:24px}
+.hero__subtitle{font-size:14px}
+.hero__buttons{flex-direction:column;gap:10px}
+.btn{width:100%;padding:14px;font-size:15px}
+.hero__stats{flex-direction:column;gap:14px}
+.hero__stat-value{font-size:22px}
+.hero__stat-label{font-size:13px;max-width:none}
+.hero__image--placeholder{aspect-ratio:4/3}
+.hero__rating-badge{position:static;margin:16px auto 0;width:fit-content}
+.services__grid{grid-template-columns:1fr;gap:16px}
+.why__grid{grid-template-columns:1fr;gap:16px}
+.reviews__grid{grid-template-columns:1fr;gap:16px}
+.portfolio__grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.portfolio-item{font-size:11px}
+.footer__inner{grid-template-columns:1fr;gap:24px}
+.section{padding:40px 0}
+.section__title{font-size:22px}
+.section__header{margin-bottom:28px}
+.cta{padding:20px 14px}
+.cta__form{padding:16px}
+.cta__form select,.cta__form input{font-size:15px;padding:12px 14px}
+.education{padding:20px 16px;gap:16px}
+.education__icon{width:56px;height:56px;font-size:26px}
+.service-card__photo{font-size:12px}
+.service-card__body{padding:16px}
+.header__logo{font-size:15px}
+.header__logo-sub{display:none}
+.footer__bottom{font-size:11px;padding:16px 0}
+}
+
+/* TOUCH OPTIMIZATION */
+@media(hover:none){
+.service-card:hover{transform:none}
+.why-card:hover{transform:none}
+.review-card:hover{transform:none}
+.portfolio-item:hover{transform:none}
+.btn:hover{transform:none;box-shadow:none}
+.cta__btn:hover{transform:none}
+}
+
+/* LARGE SCREENS */
+@media(min-width:1200px){
+.container{padding:0 32px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="container">
+<div class="header__inner">
+<div class="header__logo-block">
+<div class="header__logo">Кабинет практической <span>подологии</span></div>
+<div class="header__logo-sub">Наталья Чигирева</div>
+<div class="header__badge">Аппаратный педикюр — от 2000 &#8381;</div>
+</div>
+<nav class="header__nav" id="nav">
+<div class="header__dropdown">
+<a href="#services">Услуги &#9662;</a>
+<div class="header__dropdown-menu">
+<a href="#services">Аппаратный педикюр</a>
+<a href="#services">Лечение вросшего ногтя</a>
+<a href="#services">Титановая нить</a>
+<a href="#services">Обработка мозолей</a>
+<a href="#services">Консультация</a>
+</div>
+</div>
+<a href="#why">Почему я</a>
+<a href="#education">Образование</a>
+<a href="#reviews">Отзывы</a>
+<a href="#portfolio">Результаты</a>
+<a href="#cta">Контакты</a>
+</nav>
+<div class="header__right">
+<a href="tel:+79137611781" class="header__phone">+7 (913) 761-17-81</a>
+<a href="#cta" class="header__cta">Записаться</a>
+<button class="header__burger" id="burger" aria-label="Меню">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero__inner">
+<div class="hero__content fade-in">
+<h1 class="hero__title">Подология <em>профессионально и без боли</em> — с заботой о ваших ногах</h1>
+<p class="hero__subtitle">Кабинет практической подологии Натальи Чигиревой. Лечение вросших и деформированных ногтей, аппаратный педикюр, обработка мозолей и натоптышей, установка титановой нити. Центр города, м. Красный проспект.</p>
+<p class="hero__address">ул. Фрунзе, 5/2, каб. 9 (м. Красный проспект)</p>
+<div class="hero__buttons">
+<a href="#services" class="btn btn--primary">Выбрать услугу</a>
+<a href="#cta" class="btn btn--outline">Записаться</a>
+</div>
+<div class="hero__stats">
+<div class="hero__stat"><span class="hero__stat-value">5.0</span><span class="hero__stat-label">рейтинг (17 оценок на 2ГИС)</span></div>
+<div class="hero__stat"><span class="hero__stat-value">с 8:00</span><span class="hero__stat-label">приём раньше всех в городе</span></div>
+<div class="hero__stat"><span class="hero__stat-value">8:00&#8211;20:00</span><span class="hero__stat-label">ежедневно</span></div>
+<div class="hero__stat"><span class="hero__stat-value">от 2000 &#8381;</span><span class="hero__stat-label">ниже рынка при 5.0 рейтинге</span></div>
+</div>
+</div>
+<div class="hero__image-wrap fade-in">
+<div class="hero__image hero__image--placeholder">
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-bottom:16px">
+<circle cx="60" cy="60" r="56" stroke="#b8935f" stroke-width="2" opacity="0.4"/>
+<path d="M42 80 Q42 55 52 50 Q52 35 58 33 Q60 30 62 33 Q68 35 68 50 Q78 55 78 80 Q78 85 73 85 L47 85 Q42 85 42 80Z" fill="#ede4d4" stroke="#b8935f" stroke-width="1.5" stroke-linejoin="round"/>
+<ellipse cx="52" cy="45" rx="4" ry="6" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
+<ellipse cx="58" cy="42" rx="4.5" ry="6.5" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
+<ellipse cx="64" cy="42" rx="4.5" ry="6.5" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
+<ellipse cx="70" cy="45" rx="4" ry="6" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
+<ellipse cx="75" cy="50" rx="3" ry="4.5" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
+<path d="M52 48 L52 52 M58 45 L58 49 M64 45 L64 49 M70 48 L70 52" stroke="#d4b88a" stroke-width="1" opacity="0.6"/>
+</svg>
+<div style="font-size:15px;font-weight:600;color:#b0a48f;margin-bottom:4px">Кабинет подологии</div>
+<div style="font-size:13px;color:#c4b89e">здесь будет ваше фото</div>
+</div>
+<div class="hero__rating-badge">
+<div class="hero__rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<div><div class="hero__rating-value">5.0</div><div class="hero__rating-text">17 оценок на 2ГИС<br>идеальный балл</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+<div class="container">
+<div class="section__header fade-in">
+<h2 class="section__title">Услуги</h2>
+<p class="section__subtitle">Подологические процедуры и профессиональный педикюр</p>
+<div class="section__promo">Аппаратный педикюр — от 2000 &#8381;</div>
+</div>
+<div class="services__grid">
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Аппаратный педикюр</h3>
+<p class="service-card__desc">Полная обработка стоп и ногтей на профессиональном оборудовании</p>
+<div class="service-card__price">2000 &#8381;</div>
+<a href="#cta" class="service-card__btn" data-service="Аппаратный педикюр">Записаться</a>
+</div>
+</div>
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Лечение вросшего ногтя</h3>
+<p class="service-card__desc">Удаление вросшего участка, обработка, рекомендации по уходу</p>
+<div class="service-card__price">от 2000 &#8381;</div>
+<a href="#cta" class="service-card__btn" data-service="Лечение вросшего ногтя">Записаться</a>
+</div>
+</div>
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Установка титановой нити</h3>
+<p class="service-card__desc">Коррекция вросших и деформированных ногтей</p>
+<div class="service-card__price">1000 &#8381;</div>
+<a href="#cta" class="service-card__btn" data-service="Установка титановой нити">Записаться</a>
+</div>
+</div>
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Обработка деформированных ногтей</h3>
+<p class="service-card__desc">Утолщённые, грибковые, изменённые ногтевые пластины</p>
+<div class="service-card__price">от 2000 &#8381;</div>
+<a href="#cta" class="service-card__btn" data-service="Обработка деформированных ногтей">Записаться</a>
+</div>
+</div>
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Снятие толщины ногтевой пластины</h3>
+<p class="service-card__desc">Истончение утолщённых ногтей</p>
+<div class="service-card__price">100&#8211;300 &#8381;</div>
+<a href="#cta" class="service-card__btn" data-service="Снятие толщины ногтевой пластины">Записаться</a>
+</div>
+</div>
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Разгрузка мозолей спецматериалом</h3>
+<p class="service-card__desc">Защитные накладки на проблемные зоны</p>
+<div class="service-card__price">300 &#8381;</div>
+<a href="#cta" class="service-card__btn" data-service="Разгрузка мозолей спецматериалом">Записаться</a>
+</div>
+</div>
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Обработка мозолей и натоптышей</h3>
+<p class="service-card__desc">Аппаратное удаление, разгрузка</p>
+<div class="service-card__price">от 2000 &#8381;</div>
+<a href="#cta" class="service-card__btn" data-service="Обработка мозолей и натоптышей">Записаться</a>
+</div>
+</div>
+
+<div class="service-card fade-in">
+<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__body">
+<h3 class="service-card__title">Консультация подолога</h3>
+<p class="service-card__desc">Диагностика, подбор ухода, план лечения</p>
+<div class="service-card__price"><span class="service-card__price-included">включена в приём</span></div>
+<a href="#cta" class="service-card__btn" data-service="Консультация подолога">Записаться</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="why" style="background:rgba(184,147,95,.04)">
+<div class="container">
+<div class="section__header fade-in">
+<h2 class="section__title">Почему я?</h2>
+<p class="section__subtitle">Персональный подход к каждому пациенту</p>
+</div>
+<div class="why__grid">
+<div class="why-card fade-in"><div class="why-card__icon">&#128241;</div><h3 class="why-card__title">Всегда на связи</h3><p class="why-card__desc">Отвечаю на сообщения, консультирую онлайн между приёмами</p></div>
+<div class="why-card fade-in"><div class="why-card__icon">&#128737;&#65039;</div><h3 class="why-card__title">Уютный кабинет, стерильность</h3><p class="why-card__desc">Чистота и комфорт — чисто, аккуратно, безопасно</p></div>
+<div class="why-card fade-in"><div class="why-card__icon">&#127893;</div><h3 class="why-card__title">Образование в подологии</h3><p class="why-card__desc">Дипломы и сертификаты по разным проблемам стоп и ногтей</p></div>
+<div class="why-card fade-in"><div class="why-card__icon">&#128103;</div><h3 class="why-card__title">Работаю с детьми</h3><p class="why-card__desc">Бережно обрабатываю детские ногти — нежно и аккуратно</p></div>
+</div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+<div class="container">
+<div class="section__header fade-in">
+<h2 class="section__title">Образование и квалификация</h2>
+<p class="section__subtitle">Постоянное обучение и практика</p>
+</div>
+<div class="education fade-in">
+<div class="education__icon">&#127891;</div>
+<div>
+<h3 class="education__title">Дипломы и сертификаты в области подологии</h3>
+<p class="education__text"><span class="education__highlight">Постоянная практика</span> работы с вросшими и деформированными ногтями, грибковыми поражениями, мозолями и натоптышами. Непрерывное повышение квалификации, индивидуальный подход к каждому случаю.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+<div class="container">
+<div class="section__header fade-in">
+<h2 class="section__title">Отзывы пациентов</h2>
+<p class="section__subtitle">Я ценю ваше доверие</p>
+</div>
+<div class="reviews__grid">
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">Это тот подолог, которого я искала! Наталья &#8212; большой профессионал, она решила мою многолетнюю проблему вросшего ногтя. Хожу без боли уже год, ноготь приобрёл человеческий форму и не врастает! Всем буду рекомендовать!</p>
+<div class="review-card__author"><div class="review-card__avatar">Р</div><div><div class="review-card__name">Римма Гусева</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">Отлично помогла справиться с вросшими ногтями. Смогла сделать то, чего не мог я. Цены доступные.</p>
+<div class="review-card__author"><div class="review-card__avatar">Е</div><div><div class="review-card__name">Егор Кривошапов</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">Обратилась к Наталье экстренно с вросшим ногтем, пока гостила в Новосибирске. Наталья оперативно приняла, помогла справиться с проблемой. Цена абсолютно разумная.</p>
+<div class="review-card__author"><div class="review-card__avatar">Е</div><div><div class="review-card__name">Екатерина</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">Хочу сказать большое спасибо за спасение моего пальца! Была гранулирующая рана, боялась за ноготь, но всё обошлось. Спасибо за ваш труд и помощь, вы настоящий профессионал!</p>
+<div class="review-card__author"><div class="review-card__avatar">Л</div><div><div class="review-card__name">Лилия Обрежа</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">С Натальей мы плотно работали с проблемными ногтями больше года. Она спланировала и реализовала лечение так, что от проблемы не осталось и следа. Каждый приём на позитиве и с впечатляющим результатом.</p>
+<div class="review-card__author"><div class="review-card__avatar">К</div><div><div class="review-card__name">Константин Андриянов</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">Хожу к Наталье уже несколько лет, всегда поможет ситуативно &#8212; то ноготь врастал, то онихолизис, то педикюр. Поможет, даст рекомендации. Спасибо ей, что всегда выручает.</p>
+<div class="review-card__author"><div class="review-card__avatar">Н</div><div><div class="review-card__name">Наталья Шарыпова</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">Уютный кабинет, замечательный специалист. Наталья очень внимательная, аккуратная. Свою работу выполнила качественно на все 100 процентов. Всё объясняет, даёт рекомендации. Теперь только к ней.</p>
+<div class="review-card__author"><div class="review-card__avatar">M</div><div><div class="review-card__name">Mary Marine</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+<div class="review-card fade-in">
+<div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="review-card__text">Врос ноготь, хотел идти к хирургу, но посоветовали подолога. Наталья быстро убрала вросший угол, обработала. На следующий день ничего не болело и не беспокоило.</p>
+<div class="review-card__author"><div class="review-card__avatar">В</div><div><div class="review-card__name">Владислав Иванов</div><div class="review-card__source">2ГИС</div></div></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio" style="background:rgba(184,147,95,.04)">
+<div class="container">
+<div class="section__header fade-in">
+<h2 class="section__title">Результаты лечения &#8212; до и после</h2>
+<p class="section__subtitle">Реальные случаи из практики</p>
+</div>
+<div class="portfolio__grid">
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+</div>
+<p class="portfolio__caption fade-in">Реальные случаи из практики. Фото предоставлены пациентами с их согласия.</p>
+<div style="text-align:center"><a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener" class="portfolio__link fade-in">Смотреть больше в VK &#8594;</a></div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="cta">
+<div class="container">
+<div class="cta fade-in">
+<div class="cta__inner">
+<div>
+<h2 class="cta__title">Запишитесь на приём</h2>
+<p class="cta__subtitle">Напишите в мессенджер или оставьте заявку &#8212; отвечу и подберу удобное время</p>
+<div class="cta__buttons">
+<a href="https://wa.me/79137611781" target="_blank" rel="noopener" class="cta__btn cta__btn--wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Записаться в WhatsApp</a>
+<a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener" class="cta__btn cta__btn--vk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.07 14.27h-1.46c-.55 0-.72-.44-1.71-1.43-.86-.83-1.24-.94-1.45-.94-.3 0-.39.08-.39.5v1.31c0 .36-.11.57-1.06.57-1.57 0-3.3-.95-4.52-2.72-1.84-2.58-2.34-4.52-2.34-4.92 0-.22.08-.42.5-.42h1.46c.37 0 .51.17.65.57.72 2.08 1.92 3.9 2.42 3.9.19 0 .27-.08.27-.56V10.1c-.06-.99-.58-1.07-.58-1.42 0-.17.14-.34.37-.34h2.3c.31 0 .42.17.42.54v2.96c0 .31.14.42.22.42.19 0 .35-.11.7-.46 1.08-1.21 1.85-3.08 1.85-3.08.1-.22.27-.42.64-.42h1.46c.44 0 .53.22.44.54-.18.83-1.94 3.32-1.94 3.32-.15.25-.21.36 0 .64.15.21.65.64.98 1.03.61.69 1.08 1.27 1.21 1.66.12.39-.08.59-.47.59z"/></svg>Написать в VK</a>
+</div>
+</div>
+<form class="cta__form" onsubmit="handleForm(event)">
+<select id="formService" required>
+<option value="">Выберите услугу</option>
+<option>Аппаратный педикюр</option>
+<option>Лечение вросшего ногтя</option>
+<option>Установка титановой нити</option>
+<option>Обработка деформированных ногтей</option>
+<option>Снятие толщины ногтевой пластины</option>
+<option>Разгрузка мозолей спецматериалом</option>
+<option>Обработка мозолей и натоптышей</option>
+<option>Консультация подолога</option>
+</select>
+<input type="text" placeholder="Ваше имя" required>
+<input type="tel" placeholder="Телефон" required>
+<button type="submit">Отправить заявку</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer__inner">
+<div>
+<div class="footer__brand">Кабинет практической <span>подологии</span></div>
+<p class="footer__desc">Кабинет практической подологии Натальи Чигиревой. Лечение вросших и деформированных ногтей, аппаратный педикюр, обработка мозолей и натоптышей, установка титановой нити. Центр города, ул. Фрунзе, 5/2.</p>
+<div class="footer__social"><a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener">VK</a><a href="https://wa.me/79137611781" target="_blank" rel="noopener">WA</a></div>
+</div>
+<div>
+<h4 class="footer__title">Услуги</h4>
+<div class="footer__links">
+<a href="#services">Педикюр</a>
+<a href="#services">Вросшие ногти</a>
+<a href="#services">Титановая нить</a>
+<a href="#services">Консультация</a>
+</div>
+</div>
+<div>
+<h4 class="footer__title">Контакты</h4>
+<div class="footer__contacts">
+<p><a href="tel:+79137611781">+7 (913) 761-17-81</a></p>
+<p>ул. Фрунзе, 5/2, каб. 9</p>
+<p>2 этаж, домофон 209</p>
+<p>Центральный район</p>
+<p>Ежедневно: 8:00&#8211;20:00</p>
+<p>По записи</p>
+</div>
+</div>
+<div>
+<h4 class="footer__title">Запись</h4>
+<div class="footer__links">
+<a href="https://wa.me/79137611781" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener">VK</a>
+<a href="#cta">Форма записи</a>
+</div>
+</div>
+</div>
+<div class="footer__bottom">&#169; 2026 Кабинет практической подологии. Все права защищены.</div>
+</div>
+</footer>
+
+<script>
+var burger=document.getElementById('burger');var nav=document.getElementById('nav');
+burger.addEventListener('click',function(){
+  burger.classList.toggle('active');
+  nav.classList.toggle('active');
+  nav.classList.toggle('header__nav--mobile');
+  document.body.style.overflow=nav.classList.contains('active')?'hidden':'';
+});
+nav.querySelectorAll('a').forEach(function(link){
+  link.addEventListener('click',function(){
+    if(nav.classList.contains('active')){
+      burger.classList.remove('active');
+      nav.classList.remove('active');
+      nav.classList.remove('header__nav--mobile');
+      document.body.style.overflow='';
+    }
+  });
+});
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el);});
+document.querySelectorAll('.service-card__btn[data-service]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var serviceName=btn.getAttribute('data-service');
+    var select=document.getElementById('formService');
+    if(select){
+      for(var i=0;i<select.options.length;i++){
+        if(select.options[i].text===serviceName){
+          select.selectedIndex=i;
+          break;
+        }
+      }
+    }
+  });
+});
+function handleForm(e){
+  e.preventDefault();
+  var form=e.target;
+  var service=form.querySelector('select').value;
+  var name=form.querySelector('input[type="text"]').value;
+  var phone=form.querySelector('input[type="tel"]').value;
+  var msg=encodeURIComponent('Новая заявка с сайта\nУслуга: '+service+'\nИмя: '+name+'\nТелефон: '+phone);
+  window.open('https://wa.me/79137611781?text='+msg,'_blank');
+  form.reset();
+  alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+}
+</script>
+</body>
+</html>
