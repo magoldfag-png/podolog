@@ -21,6 +21,8 @@ ul{list-style:none}
 --gold-light:#d4b88a;
 --dark:#1a1a1a;
 --light:#faf8f5;
+--max:#7B61FF;
+--max-2:#2E7CF6;
 --card-shadow:0 4px 24px rgba(26,26,26,.08);
 --card-shadow-hover:0 12px 40px rgba(184,147,95,.18);
 --radius:18px;
@@ -140,16 +142,23 @@ ul{list-style:none}
 .cta__title{font-size:28px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-.5px}
 .cta__subtitle{font-size:15px;color:#aaa;margin-bottom:24px}
 .cta__buttons{display:flex;flex-direction:column;gap:12px}
-.cta__btn{display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:600;transition:all .25s;min-height:var(--tap)}
-.cta__btn--wa{background:#25D366;color:#fff}
+.cta__btn{display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:600;transition:all .25s;min-height:var(--tap);color:#fff}
+.cta__btn--wa{background:#25D366}
 .cta__btn--wa:hover{background:#1da851;transform:translateY(-2px)}
-.cta__btn--vk{background:#0077FF;color:#fff}
+.cta__btn--max{background:linear-gradient(135deg,var(--max) 0%,var(--max-2) 100%)}
+.cta__btn--max:hover{filter:brightness(.92);transform:translateY(-2px)}
+.cta__btn--vk{background:#0077FF}
 .cta__btn--vk:hover{background:#005ccc;transform:translateY(-2px)}
 .cta__form{background:#fff;border-radius:var(--radius);padding:28px}
 .cta__form select,.cta__form input{width:100%;padding:14px 16px;border:2px solid #eee;border-radius:12px;font-size:16px;font-family:inherit;margin-bottom:14px;transition:border-color .2s;outline:none;-webkit-appearance:none;appearance:none}
 .cta__form select:focus,.cta__form input:focus{border-color:var(--gold)}
-.cta__form button{width:100%;padding:14px;background:var(--gold);color:#fff;border-radius:12px;font-size:16px;font-weight:600;transition:all .2s;min-height:var(--tap)}
-.cta__form button:hover{background:#a07e4f;transform:translateY(-1px)}
+.cta__form button{width:100%;padding:14px;background:var(--gold);color:#fff;border-radius:12px;font-size:16px;font-weight:600;transition:all .2s;min-height:var(--tap);display:flex;align-items:center;justify-content:center;gap:9px}
+.cta__form-actions{display:flex;flex-direction:column;gap:10px}
+.cta__form button[data-messenger="wa"]{background:#25D366}
+.cta__form button[data-messenger="wa"]:hover{background:#1da851;transform:translateY(-1px)}
+.cta__form button[data-messenger="max"]{background:linear-gradient(135deg,var(--max) 0%,var(--max-2) 100%)}
+.cta__form button[data-messenger="max"]:hover{filter:brightness(.92);transform:translateY(-1px)}
+.cta__form-note{font-size:11px;color:#aaa;text-align:center;margin-top:12px;line-height:1.4}
 
 /* FOOTER */
 .footer{background:var(--dark);color:#ccc;padding:48px 0 24px;margin-top:60px}
@@ -158,8 +167,9 @@ ul{list-style:none}
 .footer__brand span{color:var(--gold)}
 .footer__desc{font-size:13px;color:#999;line-height:1.6;max-width:280px}
 .footer__social{display:flex;gap:10px;margin-top:16px}
-.footer__social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;transition:all .2s}
+.footer__social a{height:40px;min-width:40px;padding:0 12px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;transition:all .2s;color:#fff}
 .footer__social a:hover{background:var(--gold);color:#fff}
+.footer__social a.footer__social--max:hover{background:linear-gradient(135deg,var(--max),var(--max-2))}
 .footer__title{font-size:14px;font-weight:700;color:#fff;margin-bottom:14px}
 .footer__links a,.footer__contacts p{display:block;font-size:13px;color:#999;margin-bottom:8px;transition:color .2s}
 .footer__links a:hover{color:var(--gold)}
@@ -170,9 +180,9 @@ ul{list-style:none}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 /* MOBILE NAV */
-.header__nav--mobile{display: none;position:fixed;top:72px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;align-items:flex-start;padding:20px 24px;gap:0;box-shadow:var(--card-shadow);transform:translateX(-100%);opacity:0;visibility:hidden;transition:all .3s;z-index:99;overflow-y:auto}
-.header__nav--mobile.active{display: none;transform:translateX(0);opacity:1;visibility:visible}
-.header__nav--mobile>a{display: none;font-size:16px;padding:14px 0;min-height:var(--tap);display:flex;align-items:center;width:100%;border-bottom:1px solid #f0f0f0}
+.header__nav--mobile{position:fixed;top:72px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;align-items:flex-start;padding:20px 24px;gap:0;box-shadow:var(--card-shadow);transform:translateX(-100%);opacity:0;visibility:hidden;transition:all .3s;z-index:99;overflow-y:auto}
+.header__nav--mobile.active{transform:translateX(0);opacity:1;visibility:visible}
+.header__nav--mobile>a{font-size:16px;padding:14px 0;min-height:var(--tap);display:flex;align-items:center;width:100%;border-bottom:1px solid #f0f0f0}
 .header__dropdown--mobile{width:100%}
 .header__dropdown--mobile>a{font-size:16px;padding:14px 0;min-height:var(--tap);display:flex;align-items:center;width:100%;border-bottom:1px solid #f0f0f0}
 .header__dropdown-menu--mobile{display:none;padding:0 0 8px 16px}
@@ -255,6 +265,7 @@ ul{list-style:none}
 .cta{padding:20px 14px}
 .cta__form{padding:16px}
 .cta__form select,.cta__form input{font-size:15px;padding:12px 14px}
+.cta__form button{font-size:15px}
 .education{padding:20px 16px;gap:16px}
 .education__icon{width:56px;height:56px;font-size:26px}
 .service-card__photo{font-size:12px}
@@ -324,6 +335,7 @@ ul{list-style:none}
 .portfolio-item:hover{transform:none}
 .btn:hover{transform:none;box-shadow:none}
 .cta__btn:hover{transform:none}
+.cta__form button:hover{transform:none}
 }
 
 /* LARGE SCREENS */
@@ -362,7 +374,7 @@ ul{list-style:none}
 <div class="header__right">
 <a href="tel:+79137611781" class="header__phone">+7 (913) 761-17-81</a>
 <a href="#cta" class="header__cta">Записаться</a>
-<button class="" id="burger" aria-label="Меню">
+<button class="header__burger" id="burger" aria-label="Меню">
 <span></span><span></span><span></span>
 </button>
 </div>
@@ -390,14 +402,7 @@ ul{list-style:none}
 </div>
 </div>
 <div class="hero__image-wrap fade-in">
-<div class="hero__image hero__image--placeholder">
-
-<div class="hero__image hero__image--placeholder">
-    <img src="pic/photo_2_2026-10-13_06-14-23.jpg" alt="Кабинет подологии" class="hero__image">
-</div>
-
-
-</div>
+<img src="pic/photo_2_2026-10-13_06-14-23.jpg" alt="Кабинет подологии" class="hero__image">
 <div class="hero__rating-badge">
 <div class="hero__rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
 <div><div class="hero__rating-value">5.0</div><div class="hero__rating-text">17 оценок на 2ГИС<br>идеальный балл</div></div>
@@ -675,9 +680,11 @@ ul{list-style:none}
 <div>
 <h2 class="cta__title">Запишитесь на приём</h2>
 <p class="cta__subtitle">Напишите в мессенджер или оставьте заявку &#8212; отвечу и подберу удобное время</p>
+<!-- ВАЖНО: ниже ссылки MAX (max.ru). Замените на вашу персональную ссылку-приглашение из приложения MAX -->
 <div class="cta__buttons">
-<a href="https://wa.me/79137611781" target="_blank" rel="noopener" class="cta__btn cta__btn--wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Записаться в WhatsApp</a>
-<a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener" class="cta__btn cta__btn--vk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.07 14.27h-1.46c-.55 0-.72-.44-1.71-1.43-.86-.83-1.24-.94-1.45-.94-.3 0-.39.08-.39.5v1.31c0 .36-.11.57-1.06.57-1.57 0-3.3-.95-4.52-2.72-1.84-2.58-2.34-4.52-2.34-4.92 0-.22.08-.42.5-.42h1.46c.37 0 .51.17.65.57.72 2.08 1.92 3.9 2.42 3.9.19 0 .27-.08.27-.56V10.1c-.06-.99-.58-1.07-.58-1.42 0-.17.14-.34.37-.34h2.3c.31 0 .42.17.42.54v2.96c0 .31.14.42.22.42.19 0 .35-.11.7-.46 1.08-1.21 1.85-3.08 1.85-3.08.1-.22.27-.42.64-.42h1.46c.44 0 .53.22.44.54-.18.83-1.94 3.32-1.94 3.32-.15.25-.21.36 0 .64.15.21.65.64.98 1.03.61.69 1.08 1.27 1.21 1.66.12.39-.08.59-.47.59z"/></svg>Написать в VK</a>
+<a href="https://wa.me/79137611781" target="_blank" rel="noopener" class="cta__btn cta__btn--wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Записаться в WhatsApp</a>
+<a href="https://max.ru/u/79137611781" target="_blank" rel="noopener" class="cta__btn cta__btn--max"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.77 1.41 5.25 3.62 6.87V22l3.36-1.85c.95.26 1.96.4 3.02.4 5.52 0 10-3.94 10-8.75C22 5.94 17.52 2 12 2z"/></svg>Записаться в MAX</a>
+<a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener" class="cta__btn cta__btn--vk"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.07 14.27h-1.46c-.55 0-.72-.44-1.71-1.43-.86-.83-1.24-.94-1.45-.94-.3 0-.39.08-.39.5v1.31c0 .36-.11.57-1.06.57-1.57 0-3.3-.95-4.52-2.72-1.84-2.58-2.34-4.52-2.34-4.92 0-.22.08-.42.5-.42h1.46c.37 0 .51.17.65.57.72 2.08 1.92 3.9 2.42 3.9.19 0 .27-.08.27-.56V10.1c-.06-.99-.58-1.07-.58-1.42 0-.17.14-.34.37-.34h2.3c.31 0 .42.17.42.54v2.96c0 .31.14.42.22.42.19 0 .35-.11.7-.46 1.08-1.21 1.85-3.08 1.85-3.08.1-.22.27-.42.64-.42h1.46c.44 0 .53.22.44.54-.18.83-1.94 3.32-1.94 3.32-.15.25-.21.36 0 .64.15.21.65.64.98 1.03.61.69 1.08 1.27 1.21 1.66.12.39-.08.59-.47.59z"/></svg>Написать в VK</a>
 </div>
 </div>
 <form class="cta__form" onsubmit="handleForm(event)">
@@ -694,7 +701,11 @@ ul{list-style:none}
 </select>
 <input type="text" placeholder="Ваше имя" required>
 <input type="tel" placeholder="Телефон" required>
-<button type="submit">Отправить заявку</button>
+<div class="cta__form-actions">
+<button type="submit" data-messenger="wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Отправить в WhatsApp</button>
+<button type="submit" data-messenger="max"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.77 1.41 5.25 3.62 6.87V22l3.36-1.85c.95.26 1.96.4 3.02.4 5.52 0 10-3.94 10-8.75C22 5.94 17.52 2 12 2z"/></svg>Отправить в MAX</button>
+</div>
+<p class="cta__form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
 </form>
 </div>
 </div>
@@ -708,7 +719,11 @@ ul{list-style:none}
 <div>
 <div class="footer__brand">Кабинет практической <span>подологии</span></div>
 <p class="footer__desc">Кабинет практической подологии Натальи Чигиревой. Лечение вросших и деформированных ногтей, аппаратный педикюр, обработка мозолей и натоптышей, установка титановой нити. Центр города, ул. Фрунзе, 5/2.</p>
-<div class="footer__social"><a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener">VK</a><a href="https://wa.me/79137611781" target="_blank" rel="noopener">WA</a></div>
+<div class="footer__social">
+<a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener">VK</a>
+<a href="https://wa.me/79137611781" target="_blank" rel="noopener">WA</a>
+<a href="https://max.ru/+79137611781" target="_blank" rel="noopener" class="footer__social--max">MAX</a>
+</div>
 </div>
 <div>
 <h4 class="footer__title">Услуги</h4>
@@ -734,6 +749,7 @@ ul{list-style:none}
 <h4 class="footer__title">Запись</h4>
 <div class="footer__links">
 <a href="https://wa.me/79137611781" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://max.ru/+79137611781" target="_blank" rel="noopener">MAX</a>
 <a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener">VK</a>
 <a href="#cta">Форма записи</a>
 </div>
@@ -744,6 +760,13 @@ ul{list-style:none}
 </footer>
 
 <script>
+/* ===== ССЫЛКИ НА МЕССЕНДЖЕРЫ ===== */
+/* Замените MAX_LINK на вашу персональную ссылку из приложения MAX
+   (Профиль → Поделиться → Скопировать ссылку). */
+var MAX_LINK = 'https://max.ru/+79137611781';
+var WA_LINK  = 'https://wa.me/79137611781';
+
+/* ===== МОБИЛЬНОЕ МЕНЮ ===== */
 var burger=document.getElementById('burger');var nav=document.getElementById('nav');
 burger.addEventListener('click',function(){
   burger.classList.toggle('active');
@@ -761,6 +784,8 @@ nav.querySelectorAll('a').forEach(function(link){
     }
   });
 });
+
+/* ===== АНИМАЦИИ ===== */
 var observer=new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
@@ -770,6 +795,8 @@ var observer=new IntersectionObserver(function(entries){
   });
 },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el);});
+
+/* ===== АВТОПОДСТАНОВКА УСЛУГИ В ФОРМУ ===== */
 document.querySelectorAll('.service-card__btn[data-service]').forEach(function(btn){
   btn.addEventListener('click',function(){
     var serviceName=btn.getAttribute('data-service');
@@ -784,16 +811,50 @@ document.querySelectorAll('.service-card__btn[data-service]').forEach(function(b
     }
   });
 });
+
+/* ===== ОПРАВКА ФОРМЫ В WA ИЛИ MAX ===== */
+var lastMessenger='wa';
+document.querySelectorAll('.cta__form button[data-messenger]').forEach(function(b){
+  b.addEventListener('click',function(){lastMessenger=b.getAttribute('data-messenger');});
+});
+
+function copyText(text){
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text);
+      return;
+    }
+  }catch(err){}
+  var ta=document.createElement('textarea');
+  ta.value=text;
+  ta.style.position='fixed';
+  ta.style.top='-1000px';
+  document.body.appendChild(ta);
+  ta.select();
+  try{document.execCommand('copy');}catch(e){}
+  document.body.removeChild(ta);
+}
+
 function handleForm(e){
   e.preventDefault();
   var form=e.target;
   var service=form.querySelector('select').value;
   var name=form.querySelector('input[type="text"]').value;
   var phone=form.querySelector('input[type="tel"]').value;
-  var msg=encodeURIComponent('Новая заявка с сайта\nУслуга: '+service+'\nИмя: '+name+'\nТелефон: '+phone);
-  window.open('https://wa.me/79137611781?text='+msg,'_blank');
+  var text='Новая заявка с сайта\nУслуга: '+service+'\nИмя: '+name+'\nТелефон: '+phone;
+  var messenger=(e.submitter&&e.submitter.getAttribute('data-messenger'))||lastMessenger;
+
+  if(messenger==='max'){
+    copyText(text);
+    window.open(MAX_LINK,'_blank');
+    alert('Открываю чат в MAX.\nТекст заявки уже скопирован — просто вставьте его в сообщение и отправьте.');
+  }else{
+    window.open(WA_LINK+'?text='+encodeURIComponent(text),'_blank');
+    alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+  }
+
   form.reset();
-  alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+  lastMessenger='wa';
 }
 </script>
 </body>
