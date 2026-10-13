@@ -129,7 +129,6 @@ ul{list-style:none}
 
 /* PORTFOLIO */
 .portfolio__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.portfolio-item{aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,#f0e6d5,#e8dcc8);display:flex;align-items:center;justify-content:center;font-size:13px;color:#b0a48f;font-weight:500;text-align:center;padding:14px;box-shadow:var(--card-shadow);transition:all .3s}
 .portfolio-item:hover{box-shadow:var(--card-shadow-hover);transform:scale(1.02)}
 .portfolio__caption{text-align:center;font-size:13px;color:#999;margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto}
 .portfolio__link{display:inline-block;margin-top:16px;font-size:15px;font-weight:600;color:var(--gold);transition:color .2s;min-height:var(--tap);display:inline-flex;align-items:center}
@@ -249,7 +248,6 @@ ul{list-style:none}
 .why__grid{grid-template-columns:1fr;gap:16px}
 .reviews__grid{grid-template-columns:1fr;gap:16px}
 .portfolio__grid{grid-template-columns:repeat(2,1fr);gap:12px}
-.portfolio-item{font-size:11px}
 .footer__inner{grid-template-columns:1fr;gap:24px}
 .section{padding:40px 0}
 .section__title{font-size:22px}
@@ -265,6 +263,58 @@ ul{list-style:none}
 .header__logo-sub{display:none}
 .footer__bottom{font-size:11px;padding:16px 0}
 }
+
+.service-card__photo {
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-card__photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: none; /* Убираем рамку */
+    box-shadow: none; /* Убираем тень, если есть */
+}
+
+.service-card__details {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 14px;
+    text-align: left;
+}
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: none; /* Убираем тень, если есть */
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Дополнительно можно добавить анимацию при наведении */
+.portfolio-item:hover .portfolio-image {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-image {
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 
 /* TOUCH OPTIMIZATION */
 @media(hover:none){
@@ -305,7 +355,6 @@ ul{list-style:none}
 </div>
 </div>
 <a href="#why">Почему я</a>
-<a href="#education">Образование</a>
 <a href="#reviews">Отзывы</a>
 <a href="#portfolio">Результаты</a>
 <a href="#cta">Контакты</a>
@@ -342,18 +391,12 @@ ul{list-style:none}
 </div>
 <div class="hero__image-wrap fade-in">
 <div class="hero__image hero__image--placeholder">
-<svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="margin-bottom:16px">
-<circle cx="60" cy="60" r="56" stroke="#b8935f" stroke-width="2" opacity="0.4"/>
-<path d="M42 80 Q42 55 52 50 Q52 35 58 33 Q60 30 62 33 Q68 35 68 50 Q78 55 78 80 Q78 85 73 85 L47 85 Q42 85 42 80Z" fill="#ede4d4" stroke="#b8935f" stroke-width="1.5" stroke-linejoin="round"/>
-<ellipse cx="52" cy="45" rx="4" ry="6" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
-<ellipse cx="58" cy="42" rx="4.5" ry="6.5" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
-<ellipse cx="64" cy="42" rx="4.5" ry="6.5" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
-<ellipse cx="70" cy="45" rx="4" ry="6" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
-<ellipse cx="75" cy="50" rx="3" ry="4.5" fill="#ede4d4" stroke="#b8935f" stroke-width="1"/>
-<path d="M52 48 L52 52 M58 45 L58 49 M64 45 L64 49 M70 48 L70 52" stroke="#d4b88a" stroke-width="1" opacity="0.6"/>
-</svg>
-<div style="font-size:15px;font-weight:600;color:#b0a48f;margin-bottom:4px">Кабинет подологии</div>
-<div style="font-size:13px;color:#c4b89e">здесь будет ваше фото</div>
+
+<div class="hero__image hero__image--placeholder">
+    <img src="pic/photo_2_2026-10-13_06-14-23.jpg" alt="Кабинет подологии" class="hero__image">
+</div>
+
+
 </div>
 <div class="hero__rating-badge">
 <div class="hero__rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -375,80 +418,110 @@ ul{list-style:none}
 <div class="services__grid">
 
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
-<div class="service-card__body">
-<h3 class="service-card__title">Аппаратный педикюр</h3>
-<p class="service-card__desc">Полная обработка стоп и ногтей на профессиональном оборудовании</p>
-<div class="service-card__price">2000 &#8381;</div>
-<a href="#cta" class="service-card__btn" data-service="Аппаратный педикюр">Записаться</a>
-</div>
+    <div class="service-card__photo">
+        <img src="pic/i.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+    </div>
+    <div class="service-card__body">
+        <h3 class="service-card__title">Аппаратный педикюр</h3>
+        <p class="service-card__desc">Полная обработка стоп и ногтей на профессиональном оборудовании</p>
+        <div class="service-card__price">от 3000 &#8381;</div>
+        <div class="service-card__details">подробнее при записи</div>
+        <a href="#cta" class="service-card__btn" data-service="Аппаратный педикюр">Записаться</a>
+    </div>
 </div>
 
+
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__photo">
+    <img src="pic/i2.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+</div>
 <div class="service-card__body">
 <h3 class="service-card__title">Лечение вросшего ногтя</h3>
 <p class="service-card__desc">Удаление вросшего участка, обработка, рекомендации по уходу</p>
-<div class="service-card__price">от 2000 &#8381;</div>
+<div class="service-card__price">от 1500 &#8381;</div>
+        <div class="service-card__details">подробнее при записи</div>
+
 <a href="#cta" class="service-card__btn" data-service="Лечение вросшего ногтя">Записаться</a>
 </div>
 </div>
 
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__photo">
+    <img src="pic/i3.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+</div>
 <div class="service-card__body">
 <h3 class="service-card__title">Установка титановой нити</h3>
 <p class="service-card__desc">Коррекция вросших и деформированных ногтей</p>
-<div class="service-card__price">1000 &#8381;</div>
+<div class="service-card__price">от 3500 &#8381;</div>
+        <div class="service-card__details">подробнее при записи</div>
+
 <a href="#cta" class="service-card__btn" data-service="Установка титановой нити">Записаться</a>
 </div>
 </div>
 
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__photo">
+    <img src="pic/i 4.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+</div>
 <div class="service-card__body">
-<h3 class="service-card__title">Обработка деформированных ногтей</h3>
+<h3 class="service-card__title">Обработка пальцев</h3>
 <p class="service-card__desc">Утолщённые, грибковые, изменённые ногтевые пластины</p>
 <div class="service-card__price">от 2000 &#8381;</div>
+        <div class="service-card__details">подробнее при записи</div>
+
 <a href="#cta" class="service-card__btn" data-service="Обработка деформированных ногтей">Записаться</a>
 </div>
 </div>
 
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__photo">
+    <img src="pic/i5.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+</div>
 <div class="service-card__body">
-<h3 class="service-card__title">Снятие толщины ногтевой пластины</h3>
+<h3 class="service-card__title">Обработка травмированной пластины</h3>
 <p class="service-card__desc">Истончение утолщённых ногтей</p>
-<div class="service-card__price">100&#8211;300 &#8381;</div>
+<div class="service-card__price">от 1000 &#8381;</div>
+        <div class="service-card__details">подробнее при записи</div>
+
 <a href="#cta" class="service-card__btn" data-service="Снятие толщины ногтевой пластины">Записаться</a>
 </div>
 </div>
 
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__photo">
+    <img src="pic/i6.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+</div>
 <div class="service-card__body">
 <h3 class="service-card__title">Разгрузка мозолей спецматериалом</h3>
 <p class="service-card__desc">Защитные накладки на проблемные зоны</p>
-<div class="service-card__price">300 &#8381;</div>
+<div class="service-card__price">от 500 &#8381;</div>
+        <div class="service-card__details">подробнее при записи</div>
+
 <a href="#cta" class="service-card__btn" data-service="Разгрузка мозолей спецматериалом">Записаться</a>
 </div>
 </div>
 
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__photo">
+    <img src="pic/i7.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+</div>
 <div class="service-card__body">
 <h3 class="service-card__title">Обработка мозолей и натоптышей</h3>
 <p class="service-card__desc">Аппаратное удаление, разгрузка</p>
-<div class="service-card__price">от 2000 &#8381;</div>
+<div class="service-card__price">от 2800 &#8381;</div>
+        <div class="service-card__details">подробнее при записи</div>
+
 <a href="#cta" class="service-card__btn" data-service="Обработка мозолей и натоптышей">Записаться</a>
 </div>
 </div>
 
 <div class="service-card fade-in">
-<div class="service-card__photo">здесь будет ваше фото</div>
+<div class="service-card__photo">
+    <img src="pic/i8.jpg" alt="Подологический педикюр" class="service-card__photo-img">
+</div>
 <div class="service-card__body">
-<h3 class="service-card__title">Консультация подолога</h3>
-<p class="service-card__desc">Диагностика, подбор ухода, план лечения</p>
+<h3 class="service-card__title">Каждая проблема индивидуальна</h3>
+<p class="service-card__desc">Проконсультируем и подберём персональный план лечения для вашего случая</p>
 <div class="service-card__price"><span class="service-card__price-included">включена в приём</span></div>
 <a href="#cta" class="service-card__btn" data-service="Консультация подолога">Записаться</a>
 </div>
@@ -556,18 +629,38 @@ ul{list-style:none}
 <section class="section" id="portfolio" style="background:rgba(184,147,95,.04)">
 <div class="container">
 <div class="section__header fade-in">
-<h2 class="section__title">Результаты лечения &#8212; до и после</h2>
-<p class="section__subtitle">Реальные случаи из практики</p>
+<h2 class="section__title">Галерея работ</h2>
+<p class="section__subtitle">И реальные случаи из практики</p>
 </div>
 <div class="portfolio__grid">
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
-<div class="portfolio-item fade-in">здесь будет ваше фото до/после</div>
+<div class="portfolio-item">
+    <img src="pic/photo_37_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
+
+<div class="portfolio-item">
+    <img src="pic/photo_38_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
+
+<div class="portfolio-item">
+    <img src="pic/photo_39_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
+
+<div class="portfolio-item">
+    <img src="pic/photo_40_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
+
+<div class="portfolio-item">
+    <img src="pic/photo_42_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
+<div class="portfolio-item">
+    <img src="pic/photo_44_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
+<div class="portfolio-item">
+    <img src="pic/photo_43_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
+<div class="portfolio-item">
+    <img src="pic/photo_46_2026-10-13_06-14-24.jpg" alt="Результат лечения" class="portfolio-image">
+</div>
 </div>
 <p class="portfolio__caption fade-in">Реальные случаи из практики. Фото предоставлены пациентами с их согласия.</p>
 <div style="text-align:center"><a href="https://vk.ru/nskpodolog" target="_blank" rel="noopener" class="portfolio__link fade-in">Смотреть больше в VK &#8594;</a></div>
